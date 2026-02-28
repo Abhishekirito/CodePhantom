@@ -9,7 +9,7 @@ app.use(cors());
 const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
-    origin: "https://code-phantom.vercel.app",
+    origin: ["https://code-phantom.vercel.app", "https://code-phantom-abhiswork10d5-gmailcoms-projects.vercel.app"],
     methods: ["GET", "POST"],
   },
 });
