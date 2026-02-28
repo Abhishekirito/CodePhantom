@@ -239,11 +239,13 @@ const GameRoom = ({ roomId, myRole, category, currentRound, isDead, players, ini
           <div className="bg-blue-600 text-white px-3 py-1 border-2 border-blue-800 shadow-sm">
              ROUND {currentRound}/3
           </div>
-          <span className="text-sm">Mission: {category}</span>
           {/* SHOW ROLE */}
           <span className={`px-2 py-1 border-2 ${isImposter ? 'bg-red-500 border-red-800' : 'bg-green-500 border-green-800'} text-white`}>
             {isImposter ? "IMPOSTER" : "CIVILIAN"}
           </span>
+          <span className="text-sm text-white">Mission: {category}</span>
+          
+          
           {isDead && <span className="text-red-600 font-bold animate-pulse">DEAD</span>}
         </div>
         
@@ -279,12 +281,12 @@ const GameRoom = ({ roomId, myRole, category, currentRound, isDead, players, ini
         <div className="w-1/5 bg-panel-bg border-r-4 border-orange-900 p-4 flex flex-col gap-4 overflow-y-auto">
           
           <div className="mb-4 pb-4 border-b-2 border-orange-300">
-             <h3 className="text-orange-900 font-bold mb-2 uppercase text-xs">Players</h3>
+             <h3 className="text-orange-200 font-bold mb-2 uppercase text-xs">Players</h3>
              <div className="space-y-3 pl-2"> 
                 {players.map(p => {
                     const isMe = p.id === socket.id;
                     return (
-                        <div key={p.id} className="relative flex items-center gap-2 text-sm text-gray-800">
+                        <div key={p.id} className="relative flex items-center gap-2 text-sm text-white">
                             {isMe && (<div className="absolute -left-6 text-yellow-500 font-bold text-lg animate-pulse">►</div>)}
                             <div className={`w-3 h-3 border border-black ${isMe ? 'ring-2 ring-yellow-400' : ''}`} style={{ backgroundColor: p.isDead ? '#555' : (p.color === 'Red' ? '#ff3333' : p.color === 'Blue' ? '#3366ff' : p.color) }}></div>
                             <span className={`${p.isDead ? 'line-through opacity-50' : ''} ${isMe ? 'font-bold text-yellow-600' : ''}`}>{p.name} {isMe ? '(YOU)' : ''}</span>
@@ -297,7 +299,7 @@ const GameRoom = ({ roomId, myRole, category, currentRound, isDead, players, ini
           {/* --- PASTE NEW MISSION BRIEFING HERE --- */}
           {problem && (
             <div className="mb-4 pb-4 border-b-2 border-orange-300">
-               <h3 className="text-orange-900 font-bold mb-2 uppercase text-xs flex items-center gap-2">
+               <h3 className="text-orange-200 font-bold mb-2 uppercase text-xs flex items-center gap-2">
                  Mission Briefing
                </h3>
                <div className="bg-orange-50 border-2 border-orange-200 p-3 shadow-inner">
@@ -384,7 +386,7 @@ const GameRoom = ({ roomId, myRole, category, currentRound, isDead, players, ini
           <div className="h-40 bg-black border-t-4 border-gray-700 p-3 font-mono flex flex-col shadow-inner z-20">
               <div className="flex justify-between items-center mb-2 border-b border-gray-700 pb-2">
                   <span className="text-gray-400 font-bold text-sm tracking-widest flex items-center gap-2">
-                     &gt_ TERMINAL OUTPUT
+                     TERMINAL OUTPUT
                   </span>
                   <button 
                       onClick={runCode} 
@@ -398,7 +400,7 @@ const GameRoom = ({ roomId, myRole, category, currentRound, isDead, players, ini
               <div className="grow overflow-y-auto text-sm flex flex-col gap-1 p-1">
                   {terminalOutput.runner && (
                       <span className="text-gray-500 text-xs mb-1">
-                          &gt Execution initiated by <span className="text-gray-300">{terminalOutput.runner}</span>...
+                          Execution initiated by <span className="text-gray-300">{terminalOutput.runner}</span>...
                       </span>
                   )}
                   <span className={`font-bold tracking-wide
@@ -424,7 +426,7 @@ const GameRoom = ({ roomId, myRole, category, currentRound, isDead, players, ini
             ))}
           </div>
           <form onSubmit={sendChat} className="p-2 border-t-2 border-orange-900 bg-orange-100 flex gap-2">
-            <input type="text" value={chatMessage} onChange={(e) => setChatMessage(e.target.value)} className="grow p-2" placeholder={isDead ? "Ghosts cannot speak..." : "Type..."} disabled={isDead} />
+            <input type="text" value={chatMessage} onChange={(e) => setChatMessage(e.target.value)} className="grow text-black p-2" placeholder={isDead ? "Ghosts cannot speak..." : "Type..."} disabled={isDead} />
             <button type="submit" className="bg-orange-500 text-white p-2" disabled={isDead}><Send size={16} /></button>
           </form>
         </div>
