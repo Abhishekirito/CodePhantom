@@ -449,9 +449,12 @@ io.on('connection', (socket) => {
         // CHECK: Is the game actively running (either coding or in a meeting)?
         if (room.status === 'playing' || room.status === 'meeting') {
           
-          // 1. Check if there are enough players to continue
-          if (room.players.length < 2) { 
-             io.to(roomId).emit('game_over', { reason: "Not enough players to continue!" }); 
+          // 1. Check if there are enough players to continue (CHANGED TO 3)
+          if (room.players.length < 3) { 
+             io.to(roomId).emit('game_over', { 
+                 reason: "GAME ABORTED: Not enough players to continue.",
+                 imposter: { name: "SYSTEM", color: "Gray" } // Fallback for the overlay
+             }); 
              delete rooms[roomId]; 
              return; 
           }
@@ -474,7 +477,10 @@ io.on('connection', (socket) => {
                     color: "Red" 
                 });
             } else {
-               io.to(roomId).emit('game_over', { reason: "CIVILIANS WIN! Imposter disconnected and no civilians are alive." });
+               io.to(roomId).emit('game_over', { 
+                   reason: "CIVILIANS WIN! Imposter disconnected and no civilians are alive.",
+                   imposter: { name: leavingPlayer.name, color: leavingPlayer.color }
+               });
                delete rooms[roomId];
                return;
             }
