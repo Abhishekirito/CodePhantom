@@ -133,6 +133,10 @@ At the start of every match, players are secretly assigned a role.
 
 # 🏗 Architecture Overview
 
+<p align="center">
+  <img src="architecture.png" />
+</p>
+
 ```mermaid
 flowchart LR
     A[Client - React + Monaco] -->|WebSocket| B(Node.js Server)
