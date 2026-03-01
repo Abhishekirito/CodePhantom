@@ -194,3 +194,13 @@ npm start
 ```bash
 http://localhost:5173
 ```
+---
+
+## 📜 License
+
+Distributed under the MIT License. See `LICENSE` for more information.
+
+---
+
+Built with ❤️ by the **Code Phantom Team**.  
+**Find the Bug. Find the Imposter.**
