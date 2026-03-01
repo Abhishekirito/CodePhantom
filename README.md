@@ -2,6 +2,10 @@
 ### Find the Bug. Find the Imposter.
 
 <p align="center">
+  <img src="Home.png" />
+</p>
+
+<p align="center">
   <img src="https://img.shields.io/badge/Status-Active%20Development-22c55e?style=for-the-badge" />
   <img src="https://img.shields.io/badge/License-MIT-blue?style=for-the-badge" />
   <img src="https://img.shields.io/badge/PRs-Welcome-orange?style=for-the-badge" />
@@ -66,6 +70,10 @@ At the start of every match, players are secretly assigned a role.
 - Call emergency meetings
 - Vote out the Imposter
 
+<p align="center">
+  <img src="civilian.png" />
+</p>
+
 ## 🦹 Imposter
 
 - Secretly sabotage the code
@@ -74,6 +82,10 @@ At the start of every match, players are secretly assigned a role.
 - Change conditions subtly
 - Survive meetings
 - Run down the timer or eliminate Civilians
+  
+<p align="center">
+  <img src="imposter.png" />
+</p>
 
 ---
 
