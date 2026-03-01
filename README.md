@@ -137,16 +137,6 @@ At the start of every match, players are secretly assigned a role.
   <img src="architecture.png" />
 </p>
 
-```mermaid
-flowchart LR
-    A[Client - React + Monaco] -->|WebSocket| B(Node.js Server)
-    B --> C[Room State Manager]
-    B --> D[Voting Engine]
-    B --> E[Evaluation Engine]
-    C --> F[Role Assignment]
-    E --> G[Test Case Validator]
-```
-
 ## 🚀 Future Roadmap
 
 - [ ] **RANKED AND STREAK SYSTEM**  
