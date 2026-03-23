@@ -263,7 +263,7 @@ const processVoting = (roomId) => {
         players: room.players, 
         nextRound: room.currentRound,
         resetTime: true,
-        remainingTime: 60
+        remainingTime: 120
       });
   } else {
       room.status = 'playing';
