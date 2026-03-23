@@ -414,7 +414,7 @@ io.on('connection', (socket) => {
       if(room && room.status === 'playing') {
          if(room.roundTimer) clearTimeout(room.roundTimer);
          
-         const safeDuration = (Number(duration) > 0) ? Number(duration) : 60;
+         const safeDuration = (Number(duration) > 0) ? Number(duration) : 120;
          room.roundStartTime = Date.now();
          room.roundDuration = safeDuration * 1000; 
          delete room.timeLeft; // RESET TIME LEFT
